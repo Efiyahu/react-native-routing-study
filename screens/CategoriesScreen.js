@@ -2,7 +2,6 @@ import {FlatList, View} from 'react-native';
 import React from 'react';
 import CategoryGridTile from '../components/CategoryGridTile';
 import {CATEGORIES} from '../data/dummy-data';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 const CategoriesScreen = ({navigation, route}) => {
   const renderCategoryItem = itemData => {
