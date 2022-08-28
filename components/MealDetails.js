@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-type Props = {
-  duration: string;
-  complexity: string;
-  affordability: string;
-};
-
-const MealDetails = ({duration, complexity, affordability}: Props) => (
+const MealDetails = ({duration, complexity, affordability}) => (
   <Description>
     <DetailItem>{duration}m</DetailItem>
     <DetailItem>{complexity.toUpperCase()}</DetailItem>
@@ -27,4 +21,5 @@ const Description = styled.View`
 const DetailItem = styled.Text`
   margin: 0 4px;
   font-size: 12px;
+  color: red;
 `;
