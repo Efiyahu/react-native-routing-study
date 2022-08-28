@@ -1,12 +1,12 @@
 import React from 'react';
-import {Button, StatusBar, Text} from 'react-native';
+import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import 'react-native-gesture-handler';
 import CategoriesScreen from './screens/CategoriesScreen';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import MealDetailsScreen from './screens/MealDetailsScreen';
-import styled from 'styled-components/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
