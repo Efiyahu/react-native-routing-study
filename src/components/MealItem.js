@@ -1,16 +1,17 @@
-import {Image, Pressable, Text, View} from 'react-native';
-import React from 'react';
+import {Pressable, View} from 'react-native';
+import React, {useLayoutEffect} from 'react';
 import styled from 'styled-components/native';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import MealDetails from './MealDetails';
 
 const MealItem = ({title, id, image, duration, complexity, affordability}) => {
   const navigation = useNavigation();
+  const route = useRoute();
   const handlePress = () => {
-    navigation.navigate('MealDetails', {
-      mealId: id,
-    });
+    route.name !== 'Favorites' &&
+      navigation.navigate('MealDetails', {
+        mealId: id,
+      });
   };
 
   return (
