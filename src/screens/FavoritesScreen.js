@@ -4,28 +4,29 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
 import MealDetails from '../components/MealDetails';
 import MealItem from '../components/MealItem';
+import {favoritesSelector} from '../store/selectors/favorites';
 
 const FavoritesScreen = () => {
-  const favorites = useSelector(state => state.favorites);
-
-  console.log(favorites);
+  const {favorites} = useSelector(favoritesSelector);
 
   return (
     <View>
-      <FlatList
-        data={favorites}
-        keyExtractor={favorites.id}
-        renderItem={itemData => (
-          <MealItem
-            duration={itemData.item.duration}
-            complexity={itemData.item.complexity}
-            affordability={itemData.item.affordability}
-            image={itemData.item.imageUrl}
-            title={itemData.item.title}
-            id={itemData.item.id}
-          />
-        )}
-      />
+      {favorites && (
+        <FlatList
+          data={favorites}
+          keyExtractor={favorites.id}
+          renderItem={itemData => (
+            <MealItem
+              duration={itemData.item.duration}
+              complexity={itemData.item.complexity}
+              affordability={itemData.item.affordability}
+              image={itemData.item.imageUrl}
+              title={itemData.item.title}
+              id={itemData.item.id}
+            />
+          )}
+        />
+      )}
     </View>
   );
 };

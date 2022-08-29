@@ -1,21 +1,30 @@
 import React, {useEffect} from 'react';
-import {Pressable, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
+import {GET_ALL_POSTS} from '../store/constants';
+import {postsSelector} from '../store/selectors/posts';
 
 const PostsScreen = ({navigation}) => {
   const dispatch = useDispatch();
-  const posts = useSelector(state => state.posts);
+  const postsState = useSelector(postsSelector);
 
   useEffect(() => {
-    dispatch({type: 'GET_ALL_POSTS'});
-    console.log(posts);
+    dispatch({type: GET_ALL_POSTS});
   }, []);
 
   const onPressPostHandler = postId => {
     navigation.navigate('PostScreen', {post: postId});
   };
+
+  if (postsState.loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
 
   const renderPostItems = itemData => (
     <Pressable
@@ -33,9 +42,9 @@ const PostsScreen = ({navigation}) => {
 
   return (
     <View style={{flex: 1, margin: 10}}>
-      {posts && (
+      {postsState && (
         <FlatList
-          data={posts.data}
+          data={postsState.posts}
           keyExtractor={item => item.id}
           renderItem={renderPostItems}
         />
