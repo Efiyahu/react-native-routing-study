@@ -12,7 +12,7 @@ const FavoritesScreen = () => {
 
   return (
     <View>
-      <FlatList
+    {favorites?.length > 0 &&<FlatList
         data={favorites}
         keyExtractor={favorites.id}
         renderItem={itemData => (
@@ -25,7 +25,7 @@ const FavoritesScreen = () => {
             id={itemData.item.id}
           />
         )}
-      />
+      />}
     </View>
   );
 };
