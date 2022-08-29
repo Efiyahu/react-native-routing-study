@@ -2,6 +2,7 @@ import {useRoute} from '@react-navigation/native';
 import React from 'react';
 import {useLayoutEffect} from 'react';
 import {Button, ScrollView, View} from 'react-native';
+import {useDispatch} from 'react-redux';
 import styled from 'styled-components/native';
 import List from '../components/meal-detail/List';
 import MealDetails from '../components/MealDetails';
@@ -10,9 +11,11 @@ import {MEALS} from '../data/dummy-data';
 const MealDetailsScreen = ({navigation}) => {
   const route = useRoute();
   const mealId = route.params?.mealId;
+  const selectedMeal = MEALS.find(meal => meal.id === mealId);
+  const dispatch = useDispatch();
 
   const handleButtonPress = () => {
-    console.log('hello');
+    dispatch({type: 'ADD_FAVORITE', payload: selectedMeal});
   };
 
   useLayoutEffect(() => {
@@ -23,7 +26,6 @@ const MealDetailsScreen = ({navigation}) => {
     });
   }, [navigation, handleButtonPress]);
 
-  const selectedMeal = MEALS.find(meal => meal.id === mealId);
   return (
     <ScrollView>
       <StyledImage source={{uri: selectedMeal?.imageUrl}} />
