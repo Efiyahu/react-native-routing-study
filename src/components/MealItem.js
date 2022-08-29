@@ -5,31 +5,8 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import MealDetails from './MealDetails';
 
-type Props = {
-  title: string;
-  image: string;
-  duration: string;
-  complexity: string;
-  affordability: string;
-  id: string;
-};
-
-export type NativeStackParamList = {
-  MealDetails: any;
-};
-
-export type NativeStackNavigation =
-  NativeStackNavigationProp<NativeStackParamList>;
-
-const MealItem = ({
-  title,
-  id,
-  image,
-  duration,
-  complexity,
-  affordability,
-}: Props) => {
-  const navigation = useNavigation<NativeStackNavigation>();
+const MealItem = ({title, id, image, duration, complexity, affordability}) => {
+  const navigation = useNavigation();
   const handlePress = () => {
     navigation.navigate('MealDetails', {
       mealId: id,

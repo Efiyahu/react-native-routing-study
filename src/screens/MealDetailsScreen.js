@@ -63,7 +63,7 @@ const Title = styled.Text`
   text-align: center;
   font-size: 20px;
   margin: 8px;
-  color: white;
+  color: ${({theme}) => theme.textColor.primary};
 `;
 
 const SubTitle = styled.Text`
@@ -71,5 +71,5 @@ const SubTitle = styled.Text`
   text-align: center;
   font-size: 18px;
   margin: 8px;
-  color: white;
+  color: ${({theme}) => theme.textColor.primary};
 `;

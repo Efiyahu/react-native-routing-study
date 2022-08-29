@@ -1,5 +1,4 @@
 import React from 'react';
-import {FlatList} from 'react-native';
 import styled from 'styled-components/native';
 
 const List = ({selectedData}) => {
@@ -13,7 +12,7 @@ const List = ({selectedData}) => {
 export default List;
 
 const Ingerdients = styled.Text`
-  color: #351401;
+  color: ${({theme}) => theme.textColor.list};
   text-align: center;
 `;
 
@@ -21,5 +20,5 @@ const StyledView = styled.View`
   border-radius: 6px;
   padding: 4px 8px;
   margin: 8px 12px;
-  background-color: #e2b497;
+  background-color: ${({theme}) => theme.listColor};
 `;

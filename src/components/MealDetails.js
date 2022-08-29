@@ -21,5 +21,5 @@ const Description = styled.View`
 const DetailItem = styled.Text`
   margin: 0 4px;
   font-size: 12px;
-  color: red;
+  color: ${({theme}) => theme.textColor.alert};
 `;

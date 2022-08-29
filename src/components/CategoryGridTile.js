@@ -2,13 +2,7 @@ import {Platform, PlatformOSType} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
 
-interface Props {
-  title: string;
-  color: string;
-  onPress: () => void;
-}
-
-const CategoryGridTile = ({title, color, onPress}: Props) => {
+const CategoryGridTile = ({title, color, onPress}) => {
   return (
     <OuterView system={Platform.OS}>
       <StyledButton
@@ -24,12 +18,12 @@ const CategoryGridTile = ({title, color, onPress}: Props) => {
 
 export default CategoryGridTile;
 
-export const OuterView = styled.View<{system: PlatformOSType}>`
+export const OuterView = styled.View`
   flex: 1;
   margin: 16px;
   border-radius: 8px;
   height: 150px;
-  background-color: white;
+  background-color: ${({theme}) => theme.light};
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   overflow: ${({system}) => (system === 'android' ? 'hidden' : 'visible')};
 `;
@@ -43,7 +37,7 @@ const StyledButton = styled.Pressable`
   flex: 1;
 `;
 
-const InnerView = styled.View<{color: string}>`
+const InnerView = styled.View`
   flex: 1;
   padding: 16px;
   border-radius: 8px;
