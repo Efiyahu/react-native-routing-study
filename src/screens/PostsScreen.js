@@ -12,6 +12,7 @@ const PostsScreen = ({navigation}) => {
 
   useEffect(() => {
     dispatch({type: GET_ALL_POSTS});
+    console.log(postsState);
   }, []);
 
   const onPressPostHandler = postId => {
