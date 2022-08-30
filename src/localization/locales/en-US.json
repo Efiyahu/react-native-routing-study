@@ -1,0 +1,28 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "switchLanguage": "Switch Language"
+  },
+  "screenNames": {
+    "favorites": "Favorites",
+    "categories": "Categories",
+    "posts": "Posts"
+  },
+  "mealDetails": {
+    "ingredients": "Ingredients",
+    "steps": "Steps"
+  },
+
+  "meals": {
+    "italian": "Italian",
+    "quick": "Quick & Easy",
+    "hamburgers": "Hamburgers",
+    "german": "German",
+    "light": "Light & Lovely",
+    "exotic": "Exotic",
+    "breakfast": "Breakfast",
+    "asian": "Asian",
+    "french": "French",
+    "summer": "Summer"
+  }
+}

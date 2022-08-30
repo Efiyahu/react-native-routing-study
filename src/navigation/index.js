@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import CategoriesScreen from './screens/CategoriesScreen';
-import MealsOverviewScreen from './screens/MealsOverviewScreen';
-import MealDetailsScreen from './screens/MealDetailsScreen';
-import FavoritesScreen from './screens/FavoritesScreen';
-import PostsScreen from './screens/PostsScreen';
+import CategoriesScreen from '../screens/CategoriesScreen';
+import MealsOverviewScreen from '../screens/MealsOverviewScreen';
+import MealDetailsScreen from '../screens/MealDetailsScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
+import PostsScreen from '../screens/PostsScreen';
 import {StatusBar} from 'react-native';
-import PostScreen from './screens/PostScreen';
+import PostScreen from '../screens/PostScreen';
+import {theme} from '../styles/theme';
+import I18n, {setLanguage} from '../localization/i18n';
+import {EnableContext} from '../contexts/EnableContext';
 
 const RootNavigation = () => {
   const Stack = createNativeStackNavigator();
   const Drawer = createDrawerNavigator();
+  const {enabled} = useContext(EnableContext);
+  useEffect(() => {
+    setLanguage(enabled ? 'he' : 'en');
+  }, [enabled]);
 
   function DrawerNavigator() {
     return (
@@ -25,9 +32,19 @@ const RootNavigation = () => {
           drawerInactiveTintColor: theme.drawerInactiveTintColor,
           drawerActiveBackgroundColor: theme.drawerActiveBackgroundColor,
         }}>
-        <Drawer.Screen name="Categories" component={CategoriesScreen} />
-        <Drawer.Screen name="Favorites" component={FavoritesScreen} />
-        <Drawer.Screen name="Posts" component={PostsScreen} />
+        <Drawer.Screen
+          name={I18n.t('screenNames.categories')}
+          component={CategoriesScreen}
+          initialParams={{enabled}}
+        />
+        <Drawer.Screen
+          name={I18n.t('screenNames.favorites')}
+          component={FavoritesScreen}
+        />
+        <Drawer.Screen
+          name={I18n.t('screenNames.posts')}
+          component={PostsScreen}
+        />
       </Drawer.Navigator>
     );
   }

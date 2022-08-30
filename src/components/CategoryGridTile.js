@@ -20,7 +20,7 @@ export default CategoryGridTile;
 
 export const OuterView = styled.View`
   flex: 1;
-  margin: 16px;
+  margin: ${({theme}) => theme.margin.large};
   border-radius: 8px;
   height: 150px;
   background-color: ${({theme}) => theme.light};
@@ -39,7 +39,7 @@ const StyledButton = styled.Pressable`
 
 const InnerView = styled.View`
   flex: 1;
-  padding: 16px;
+  padding: ${({theme}) => theme.margin.extraLarge};
   border-radius: 8px;
   justify-content: center;
   align-items: center;

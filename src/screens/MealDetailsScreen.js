@@ -7,13 +7,13 @@ import styled from 'styled-components/native';
 import List from '../components/meal-detail/List';
 import MealDetails from '../components/MealDetails';
 import {MEALS} from '../data/dummy-data';
+import I18n from '../localization/i18n';
 
 const MealDetailsScreen = ({navigation}) => {
   const route = useRoute();
   const mealId = route.params?.mealId;
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
   const dispatch = useDispatch();
-
   const handleButtonPress = () => {
     dispatch({type: 'ADD_FAVORITE', payload: selectedMeal});
   };
@@ -39,9 +39,9 @@ const MealDetailsScreen = ({navigation}) => {
       </View>
 
       <ListContainer>
-        <SubTitle>Ingerdients</SubTitle>
+        <SubTitle>{I18n.t('mealDetails.ingredients')}</SubTitle>
         <List selectedData={selectedMeal.ingredients} />
-        <SubTitle>Steps</SubTitle>
+        <SubTitle>{I18n.t('mealDetails.steps')}</SubTitle>
         <List selectedData={selectedMeal.steps} />
       </ListContainer>
     </ScrollView>
@@ -52,7 +52,7 @@ export default MealDetailsScreen;
 
 const StyledImage = styled.Image`
   width: 100%;
-  height: 250px;
+  height: ${({theme}) => theme.categoryHeight};
 `;
 
 const ListContainer = styled.View`
