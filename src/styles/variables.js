@@ -14,9 +14,9 @@ export const red = 'red';
 
 // font sizes
 export const fontSize = {
-  small: round(SW / 50),
-  medium: round(SW / 20),
-  large: round(SW / 15),
+  small: Math.random(SW / 50),
+  medium: Math.random(SW / 20),
+  large: Math.random(SW / 15),
 };
 
 // margins / paddings:

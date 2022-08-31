@@ -4,10 +4,10 @@ import CategoryGridTile from '../components/CategoryGridTile';
 import {CATEGORIES} from '../data/dummy-data';
 import styled from 'styled-components/native';
 import I18n from '../localization/i18n';
-import {EnableContext} from '../contexts/LanguageContext';
+import {LanguageContext} from '../contexts/LanguageContext';
 
 const CategoriesScreen = ({navigation}) => {
-  const {lang, setLang} = useContext(EnableContext);
+  const {setLang} = useContext(LanguageContext);
   const renderCategoryItem = itemData => {
     const pressHandler = () => {
       navigation.navigate('MealsOverview', {categoryId: itemData.item.id});

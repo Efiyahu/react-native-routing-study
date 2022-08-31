@@ -1,5 +1,5 @@
-import I18n from 'react-native-i18n';
 import en from './locales/en-US.json';
+import I18n from 'react-native-i18n';
 import he from './locales/he-IL.json';
 import languageSettings from './languageSettings';
 import {I18nManager} from 'react-native';

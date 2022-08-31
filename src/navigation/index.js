@@ -11,12 +11,12 @@ import {StatusBar} from 'react-native';
 import PostScreen from '../screens/PostScreen';
 import {theme} from '../styles/theme';
 import I18n, {setLanguage} from '../localization/i18n';
-import {EnableContext} from '../contexts/EnableContext';
+import {LanguageContext} from '../contexts/LanguageContext';
 
 const RootNavigation = () => {
   const Stack = createNativeStackNavigator();
   const Drawer = createDrawerNavigator();
-  const {enabled} = useContext(EnableContext);
+  const {enabled} = useContext(LanguageContext);
   useEffect(() => {
     setLanguage(enabled ? 'he' : 'en');
   }, [enabled]);
