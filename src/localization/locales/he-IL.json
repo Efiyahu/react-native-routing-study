@@ -1,0 +1,28 @@
+{
+  "common": {
+    "loading": "בטעינה..",
+    "switchLanguage": "שנה שפה"
+  },
+  "screenNames": {
+    "favorites": "מועדפים",
+    "categories": "קטגוריות",
+    "posts": "פוסטים"
+  },
+  "mealDetails": {
+    "ingredients": "מרכיבים",
+    "steps": "שלבים"
+  },
+
+  "meals": {
+    "italian": "איטלקי",
+    "quick": "מהיר וקל",
+    "hamburgers": "המבורגרים",
+    "german": "גרמני",
+    "light": "קליל",
+    "exotic": "אקזוטי",
+    "breakfast": "ארוחת בוקר",
+    "asian": "אסיאתי",
+    "french": "צרפתי",
+    "summer": "קיץ"
+  }
+}

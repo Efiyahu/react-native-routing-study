@@ -5,9 +5,7 @@ import styled from 'styled-components/native';
 const CategoryGridTile = ({title, color, onPress}) => {
   return (
     <OuterView system={Platform.OS}>
-      <StyledButton
-        onPress={onPress}
-        style={({pressed}) => pressed && {opacity: 0.8}}>
+      <StyledButton onPress={onPress} style={({pressed}) => pressed}>
         <InnerView color={color}>
           <Title>{title}</Title>
         </InnerView>
@@ -20,7 +18,7 @@ export default CategoryGridTile;
 
 export const OuterView = styled.View`
   flex: 1;
-  margin: 16px;
+  margin: ${({theme}) => theme.margin.large};
   border-radius: 8px;
   height: 150px;
   background-color: ${({theme}) => theme.light};
@@ -39,7 +37,7 @@ const StyledButton = styled.Pressable`
 
 const InnerView = styled.View`
   flex: 1;
-  padding: 16px;
+  padding: ${({theme}) => theme.margin.extraLarge};
   border-radius: 8px;
   justify-content: center;
   align-items: center;

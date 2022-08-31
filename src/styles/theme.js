@@ -1,18 +1,56 @@
+import {css} from 'styled-components';
+import {
+  fontSize,
+  black,
+  lightBlack,
+  lightOrange,
+  darkWhite,
+  white,
+  brown,
+  small,
+  medium,
+  large,
+  extraLarge,
+  SH,
+  red,
+} from './variables';
+
 export const theme = {
-  headerColor: 'rgb(40,40,40)',
-  headerTintColor: 'rgb(255,255,255)',
-  sceneContainerStyle: 'rgb(29,29,29)',
-  drawerContentStyle: 'rgb(40,40,40)',
-  drawerInactiveTintColor: 'white',
-  drawerActiveBackgroundColor: '#eee',
-  contentStyle: 'rgb(29,29,29)',
-  listColor: '#e2b497',
-  light: 'white',
+  headerColor: lightBlack,
+  headerTintColor: white,
+  sceneContainerStyle: black,
+  drawerContentStyle: lightBlack,
+  drawerInactiveTintColor: white,
+  drawerActiveBackgroundColor: darkWhite,
+  contentStyle: black,
+  listColor: lightOrange,
+  light: white,
+
+  categoryHeight: `${SH / 4}px`,
+  postHeight: `${SH / 6}px`,
 
   textColor: {
-    primary: 'white',
-    dark: 'black',
-    alert: 'red',
-    list: '#351401',
+    primary: white,
+    dark: black,
+    alert: red,
+    list: brown,
+  },
+
+  fontSizes: {
+    ...fontSize,
+  },
+
+  margin: {
+    small,
+    medium,
+    large,
+    extraLarge,
+  },
+
+  get clickedButtonStyle() {
+    return css`
+      opacity: 0.8;
+      transform: scale(1.01);
+    `;
   },
 };
