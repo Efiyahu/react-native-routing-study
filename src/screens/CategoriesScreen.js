@@ -4,10 +4,10 @@ import CategoryGridTile from '../components/CategoryGridTile';
 import {CATEGORIES} from '../data/dummy-data';
 import styled from 'styled-components/native';
 import I18n from '../localization/i18n';
-import {EnableContext} from '../contexts/EnableContext';
+import {EnableContext} from '../contexts/LanguageContext';
 
 const CategoriesScreen = ({navigation}) => {
-  const {enabled, setEnabled} = useContext(EnableContext);
+  const {lang, setLang} = useContext(EnableContext);
   const renderCategoryItem = itemData => {
     const pressHandler = () => {
       navigation.navigate('MealsOverview', {categoryId: itemData.item.id});
@@ -27,8 +27,7 @@ const CategoriesScreen = ({navigation}) => {
       <SwitchContainer>
         <SwitchText>{I18n.t('common.switchLanguage')}</SwitchText>
         <Switch
-          value={enabled}
-          onValueChange={() => setEnabled(prev => !prev)}
+          onValueChange={() => setLang(prev => (prev === 'en' ? 'he' : 'en'))}
         />
       </SwitchContainer>
       <FlatList

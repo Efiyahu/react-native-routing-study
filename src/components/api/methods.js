@@ -1,4 +1,3 @@
-import axios from 'axios';
 import NetInfo from '@react-native-community/netinfo';
 import {API} from './client';
 

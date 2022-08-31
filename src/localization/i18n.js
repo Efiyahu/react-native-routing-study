@@ -9,10 +9,13 @@ export function setLanguage(language = 'en') {
   I18n.defaultLocale = defaultLocale;
   I18n.locale = defaultLocale;
   I18n.fallbacks = true;
-  I18nManager.allowRTL(false);
+  I18nManager.allowRTL(language === 'en' ? false : true);
 }
 setLanguage();
 
 I18n.translations = {he, en};
+
+I18n.start = I18nManager.isRTL ? 'right' : 'left';
+I18n.end = I18nManager.isRTL ? 'left' : 'right';
 
 export default I18n;

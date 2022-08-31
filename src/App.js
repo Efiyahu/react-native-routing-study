@@ -5,7 +5,7 @@ import {theme} from './styles/theme';
 import {Provider} from 'react-redux';
 import store, {persistor} from './store';
 import RootNavigation from './navigation';
-import EnableContextProvider from './contexts/EnableContext';
+import LanguageContextProvider from './contexts/LanguageContext';
 import {PersistGate} from 'redux-persist/integration/react';
 
 const App = () => {
@@ -13,9 +13,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <EnableContextProvider>
+          <LanguageContextProvider>
             <RootNavigation />
-          </EnableContextProvider>
+          </LanguageContextProvider>
         </PersistGate>
       </Provider>
     </ThemeProvider>

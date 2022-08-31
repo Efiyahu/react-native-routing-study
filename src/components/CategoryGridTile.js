@@ -5,9 +5,7 @@ import styled from 'styled-components/native';
 const CategoryGridTile = ({title, color, onPress}) => {
   return (
     <OuterView system={Platform.OS}>
-      <StyledButton
-        onPress={onPress}
-        style={({pressed}) => pressed && {opacity: 0.8}}>
+      <StyledButton onPress={onPress} style={({pressed}) => pressed}>
         <InnerView color={color}>
           <Title>{title}</Title>
         </InnerView>
