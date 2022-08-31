@@ -57,9 +57,9 @@ const PostsScreen = ({navigation}) => {
 export default PostsScreen;
 
 const PostContainer = styled.View`
-  margin: 8px;
+  margin: ${({theme}) => theme.margin.large};
   background-color: ${({theme}) => theme.listColor};
-  height: 150px;
+  height: ${({theme}) => theme.postHeight};
   width: 90%;
   border-radius: 16px;
   align-self: center;
@@ -67,7 +67,7 @@ const PostContainer = styled.View`
 
 const PostId = styled.Text`
   text-align: center;
-  margin-top: 10px;
+  margin-top: ${({theme}) => theme.margin.large};
 `;
 
 const Body = styled.Text`
@@ -77,7 +77,7 @@ const Body = styled.Text`
 const Title = styled.Text`
   color: ${({theme}) => theme.dark};
   text-align: center;
-  margin: 8px;
+  margin: ${({theme}) => theme.margin.large};
   font-size: 18px;
   font-weight: bold;
 `;

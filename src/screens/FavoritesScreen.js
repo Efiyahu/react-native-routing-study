@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
-import MealDetails from '../components/MealDetails';
 import MealItem from '../components/MealItem';
 import {favoritesSelector} from '../store/selectors/favorites';
 

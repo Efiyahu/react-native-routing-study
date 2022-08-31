@@ -1,5 +1,5 @@
 import {put, takeLatest} from 'redux-saga/effects';
-import API from '../../components/api/methods';
+import {API} from '../../components/api/client';
 import * as postsActions from '../constants';
 
 function* getAllPosts() {
